@@ -39,6 +39,7 @@ const (
 	DefaultNumOutlets    = 4
 	DefaultBatchSize     = 500
 	DefaultID            = ""
+	DefaultDrop          = true
 )
 
 const (
@@ -81,6 +82,7 @@ type Config struct {
 	SkipVerify                          bool
 	PrintVersion                        bool
 	Verbose                             bool
+	Drop                                bool
 	WaitDuration                        time.Duration
 	Timeout                             time.Duration
 	StatsInterval                       time.Duration
@@ -124,6 +126,7 @@ func NewConfig() Config {
 		Logger:        discardLogger,
 		ErrLogger:     discardLogger,
 		FormatterFunc: DefaultFormatterFunc,
+		Drop:          DefaultDrop,
 	}
 
 	shuttleConfig.ComputeHeader()
